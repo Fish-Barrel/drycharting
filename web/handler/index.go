@@ -15,17 +15,8 @@ func New(logger *slog.Logger, tmpl *template.Template) *Handler {
 	return &Handler{ logger, tmpl }
 }
 
-func (h *Handler) LoginPage(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) Index(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "text/html")
 
-	h.tmpl.ExecuteTemplate(w, "login.html", nil)
-}
-
-func (h *Handler) Welcome(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Content-Type", "text/html")
-	h.tmpl.ExecuteTemplate(w, "welcome.html", nil)
-}
-
-func (h *Handler) Login(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/welcome", http.StatusSeeOther)
+	h.tmpl.ExecuteTemplate(w, "index.html", nil)
 }

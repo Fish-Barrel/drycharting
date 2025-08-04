@@ -14,10 +14,6 @@ func (app *App) loadRoutes() {
 
 	app.router.Handle("GET /static/", http.StripPrefix("/static", files))
 
-	app.router.Handle("GET /login", http.HandlerFunc(handler.LoginPage))
-
-	app.router.Handle("GET /welcome", http.HandlerFunc(handler.Welcome))
-
-	app.router.Handle("POST /login", http.HandlerFunc(handler.Login))
+	app.router.Handle("GET /", http.HandlerFunc(handler.Index))
 }
 
